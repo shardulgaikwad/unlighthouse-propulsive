@@ -1,0 +1,40 @@
+name: Install, Build and deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Unlighthouse assertions and client
+        run: unlighthouse-ci --site https://staging.propulsivetech.com/ --build-static --urls /
+
+      - name: Move reports to build folder
+        run: mkdir build && mv ./.unlighthouse/* ./build/
+
+      - name: Deploy report to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: "./build"
+          production-branch: main
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "New Release Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          github-deployment-environment: production
+          github-deployment-description: "Deployment description from main.yml"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEMO_SITE_ID }}
+        timeout-minutes: 1
