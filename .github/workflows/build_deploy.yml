@@ -1,4 +1,4 @@
-name: Install, Build and deploy
+name: Build and deploy
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  demo:
+  Main_Build_Deploy:
     runs-on: ubuntu-latest
     environment: production
     steps:
