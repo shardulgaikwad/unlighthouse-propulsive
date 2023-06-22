@@ -2,12 +2,16 @@ name: Install, Build and deploy
 
 on:
   workflow_dispatch:
+    inputs:
+      url:
+        description: 'Site URL to be used in the workflow'
+        required: true
   push:
     branches:
       - main
 
 jobs:
-  Main_Install_Build_Deploy:
+  demo:
     runs-on: ubuntu-latest
     environment: production
     steps:
@@ -22,7 +26,7 @@ jobs:
         run: npm install -g @unlighthouse/cli puppeteer
 
       - name: Unlighthouse assertions and client
-        run: unlighthouse-ci --site https://staging.propulsivetech.com/ --build-static --urls /
+        run: unlighthouse-ci --site ${{ github.event.inputs.url }} --build-static --urls /
 
       - name: Move reports to build folder
         run: mkdir build && mv ./.unlighthouse/* ./build/
