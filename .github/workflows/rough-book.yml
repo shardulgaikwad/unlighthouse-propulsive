@@ -1,0 +1,28 @@
+name: Rough Book
+
+on:
+  workflow_dispatch:
+    inputs:
+      website_url:
+        description: 'Webisite URL to be used in the workflow'
+        required: true
+      website_nickname:
+        description: 'Webiste Nickname to be used in the workflow'
+        required: true
+      user_name:
+        description: 'User Name to be used in the workflow'
+        required: true
+      user_email:
+        description: 'User Email to be used in the workflow'
+        required: true
+jobs:
+  roughBook:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install Dependencies
+        run: npm add @unlighthouse/cli puppeteer
