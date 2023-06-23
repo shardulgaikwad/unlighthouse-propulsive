@@ -27,5 +27,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Print Test Details
-        run: echo ${{ github.event.inputs.website_url }}
+      - name: Print GitHub Event Inputs
+        run: |
+          echo "GitHub Event Inputs:"
+          echo "${{ toJson(github.event.inputs) }}" | yq eval 'map(.)' -
