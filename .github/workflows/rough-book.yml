@@ -28,4 +28,4 @@ jobs:
           fetch-depth: 0
 
       - name: Print Test Details
-        run: echo '${{ github.event.inputs }}`
+        run: echo ${{ github.event.inputs.website_url }}
