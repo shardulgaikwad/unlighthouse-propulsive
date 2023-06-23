@@ -31,3 +31,8 @@ jobs:
         run: |
           echo "GitHub Event Inputs:"
           echo "${{ toJson(github.event.inputs) }}" | yq eval 'map(.)' -
+      
+      - name: Create and Publish new github branch
+        run: |
+          git checkout -b ${{ github.event.inputs.github_branch }} main
+          git push origin ${{ github.event.inputs.github_branch }}
