@@ -26,6 +26,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+
 
       - name: Print GitHub Event Inputs
         run: |
@@ -35,4 +37,9 @@ jobs:
       - name: Create and Publish new github branch
         run: |
           git checkout -b ${{ github.event.inputs.github_branch }} main
-          git push origin ${{ github.event.inputs.github_branch }}
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@${{ github.event.inputs.github_branch }}
+        with:
+          github_token: ${{ secrets.PAT_GITHUB }}
+          branch: ${{ github.event.inputs.github_branch }}
