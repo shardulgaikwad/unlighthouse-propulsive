@@ -15,6 +15,9 @@ on:
       user_email:
         description: 'User Email to be used in the workflow'
         required: true
+      github_branch:
+        description: 'GitHub Branch Name to be used in the workflow'
+        required: true
 jobs:
   roughBook:
     runs-on: ubuntu-latest
