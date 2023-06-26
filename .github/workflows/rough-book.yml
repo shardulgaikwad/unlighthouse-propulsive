@@ -28,7 +28,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
 
-
       - name: Print GitHub Event Inputs
         run: |
           echo "GitHub Event Inputs:"
@@ -43,3 +42,33 @@ jobs:
         with:
           github_token: ${{ secrets.PAT_GITHUB }}
           branch: ${{ github.event.inputs.github_branch }}
+
+      - name: Install Dependencies
+        run: npm add @unlighthouse/cli puppeteer
+
+      - name: Install Global Dependencies
+        run: npm install -g @unlighthouse/cli puppeteer
+
+      - name: Unlighthouse assertions and client
+        run: unlighthouse-ci --site ${{ github.event.inputs.url }} --build-static
+
+      - name: Move reports to build folder
+        run: mkdir build && mv ./.unlighthouse/* ./build/
+
+      - name: Deploy report to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: "./build"
+          production-branch: ${{ github.event.inputs.github_branch }}
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "New Release Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          github-deployment-environment: production
+          github-deployment-description: "Deployment description from main.yml"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEMO_SITE_ID }}
+        timeout-minutes: 1
