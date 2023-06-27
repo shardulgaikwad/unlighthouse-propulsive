@@ -19,8 +19,8 @@ on:
         description: "User Email to be used in the workflow"
         default: "shardulgaikwad@gmail.com"
         required: true
-      github_branch:
-        description: "GitHub Branch Name to be used in the workflow"
+      netlify_site_id_input:
+        description: "Netlify site id"
         required: true
   push:
     branches:
@@ -41,48 +41,23 @@ jobs:
           echo "GitHub Event Inputs:"
           echo "${{ toJson(github.event.inputs) }}" | yq eval 'map(.)' -
 
-      - name: Create and Publish new github branch
-        run: |
-          git checkout -b ${{ github.event.inputs.github_branch }} main
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT_GITHUB }}
-          branch: ${{ github.event.inputs.github_branch }}
-
       - name: Move reports to build folder
         run: mkdir build && mv ./static-report/* ./build/
 
-      - name: Generate Netlify alias
-        shell: bash
-        run: ruby -e 'puts "::set-output name=netlify_alias::#{`git branch --show-current`.chomp.gsub(/[^a-zA-Z\d]/){"-"}.downcase}"'
-        id: get_netlify_alias
-
-      # - name: Deploy report to Netlify
-      #   uses: nwtgck/actions-netlify@v1.1
-
-      # For branch deploy
-      - name: Deploy to Netlify (branch)
-        uses: nwtgck/actions-netlify@v1.1
+      - name: Deploy report to Netlify
+        uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: "./build"
+          production-branch: main
+          production-deploy: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          alias: ${{ github.event.inputs.github_branch }}
+          deploy-message: "New Release Deploy from GitHub Actions"
           enable-pull-request-comment: false
-          enable-commit-comment: false
-          enable-commit-status: false
-          github-deployment-environment: ${{ github.event.inputs.github_branch }}
-          # deploy-message: "New Release Deploy from GitHub Actions"
-          # overwrites-pull-request-comment: true
-          # alias: ${{ github.event.inputs.github_branch }}
-          # # github-deployment-environment: ${{ github.event.inputs.github_branch }}
-          # #github-deployment-description: "Deployment description from main.yml"
-          # alias: ${{ steps.get_netlify_alias.outputs.netlify_alias }}
-          # enable-pull-request-comment: false
-          # enable-commit-comment: false
-          # enable-commit-status: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          github-deployment-environment: production
+          github-deployment-description: "Deployment description from main.yml"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEMO_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ github.event.inputs.netlify_site_id_input }}
         timeout-minutes: 1
