@@ -59,8 +59,12 @@ jobs:
         run: ruby -e 'puts "::set-output name=netlify_alias::#{`git branch --show-current`.chomp.gsub(/[^a-zA-Z\d]/){"-"}.downcase}"'
         id: get_netlify_alias
 
-      - name: Deploy report to Netlify
-        uses: nwtgck/actions-netlify@v1.2
+      # - name: Deploy report to Netlify
+      #   uses: nwtgck/actions-netlify@v1.1
+
+      # For branch deploy
+      - name: Deploy to Netlify (branch)
+        uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: "./build"
           github-token: ${{ secrets.GITHUB_TOKEN }}
