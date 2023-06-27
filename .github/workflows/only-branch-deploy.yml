@@ -54,6 +54,11 @@ jobs:
       - name: Move reports to build folder
         run: mkdir build && mv ./static-report/* ./build/
 
+      - name: Generate Netlify alias
+        shell: bash
+        run: ruby -e 'puts "::set-output name=netlify_alias::#{`git branch --show-current`.chomp.gsub(/[^a-zA-Z\d]/){"-"}.downcase}"'
+        id: get_netlify_alias
+
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
@@ -66,8 +71,12 @@ jobs:
           enable-commit-comment: true
           overwrites-pull-request-comment: true
           alias: ${{ github.event.inputs.github_branch }}
-          #github-deployment-environment: production
+          github-deployment-environment: ${{ github.event.inputs.github_branch }}
           #github-deployment-description: "Deployment description from main.yml"
+          # alias: ${{ steps.get_netlify_alias.outputs.netlify_alias }}
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          enable-commit-status: false
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEMO_SITE_ID }}
