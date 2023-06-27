@@ -67,8 +67,6 @@ jobs:
           production-deploy: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "New Release Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
           overwrites-pull-request-comment: true
           alias: ${{ github.event.inputs.github_branch }}
           github-deployment-environment: ${{ github.event.inputs.github_branch }}
