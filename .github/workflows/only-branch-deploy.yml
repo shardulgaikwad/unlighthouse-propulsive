@@ -68,11 +68,11 @@ jobs:
         with:
           publish-dir: "./build"
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          alias: ${{ steps.get_netlify_alias.outputs.netlify_alias }}
+          alias: ${{ github.event.inputs.github_branch }}
           enable-pull-request-comment: false
           enable-commit-comment: false
           enable-commit-status: false
-          github-deployment-environment: "branch"
+          github-deployment-environment: ${{ github.event.inputs.github_branch }}
           # deploy-message: "New Release Deploy from GitHub Actions"
           # overwrites-pull-request-comment: true
           # alias: ${{ github.event.inputs.github_branch }}
