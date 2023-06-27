@@ -1,0 +1,66 @@
+[
+  {
+    "path": "/",
+    "score": 0.84,
+    "performance": 0.72,
+    "accessibility": 0.86,
+    "best-practices": 0.92,
+    "seo": 0.86
+  },
+  {
+    "path": "/2023/01/16/hello-world/",
+    "score": 0.92,
+    "performance": 0.93,
+    "accessibility": 0.82,
+    "best-practices": 1,
+    "seo": 0.93
+  },
+  {
+    "path": "/author/neha/",
+    "score": 0.89,
+    "performance": 0.87,
+    "accessibility": 0.78,
+    "best-practices": 1,
+    "seo": 0.92
+  },
+  {
+    "path": "/author/shardul/",
+    "score": 0.89,
+    "performance": 0.87,
+    "accessibility": 0.78,
+    "best-practices": 1,
+    "seo": 0.92
+  },
+  {
+    "path": "/category/uncategorized/",
+    "score": 0.9,
+    "performance": 0.9,
+    "accessibility": 0.78,
+    "best-practices": 1,
+    "seo": 0.92
+  },
+  {
+    "path": "/contact/",
+    "score": 0.89,
+    "performance": 0.77,
+    "accessibility": 0.86,
+    "best-practices": 1,
+    "seo": 0.93
+  },
+  {
+    "path": "/services-agency/",
+    "score": 0.82,
+    "performance": 0.76,
+    "accessibility": 0.81,
+    "best-practices": 0.92,
+    "seo": 0.79
+  },
+  {
+    "path": "/services-business/",
+    "score": 0.84,
+    "performance": 0.77,
+    "accessibility": 0.86,
+    "best-practices": 0.92,
+    "seo": 0.79
+  }
+]

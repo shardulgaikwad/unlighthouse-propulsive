@@ -1,0 +1,73 @@
+name: Only branch deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      website_url:
+        description: "Website URL to be used in the workflow"
+        default: "https://staging.propulsivetech.com"
+        required: true
+      website_nickname:
+        description: "Website Nickname to be used in the workflow"
+        default: "testnickname"
+        required: true
+      user_name:
+        description: "User Name to be used in the workflow"
+        default: "shardul"
+        required: true
+      user_email:
+        description: "User Email to be used in the workflow"
+        default: "shardulgaikwad@gmail.com"
+        required: true
+      github_branch:
+        description: "GitHub Branch Name to be used in the workflow"
+        required: true
+  push:
+    branches:
+      - main
+
+jobs:
+  roughBook:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+
+      - name: Print GitHub Event Inputs
+        run: |
+          echo "GitHub Event Inputs:"
+          echo "${{ toJson(github.event.inputs) }}" | yq eval 'map(.)' -
+
+      - name: Create and Publish new github branch
+        run: |
+          git checkout -b ${{ github.event.inputs.github_branch }} main
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT_GITHUB }}
+          branch: ${{ github.event.inputs.github_branch }}
+
+      - name: Move reports to build folder
+        run: mkdir build && mv ./static-report/* ./build/
+
+      - name: Deploy report to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: "./build"
+          production-branch: main #${{ github.event.inputs.github_branch }}
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "New Release Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          #github-deployment-environment: production
+          #github-deployment-description: "Deployment description from main.yml"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEMO_SITE_ID }}
+        timeout-minutes: 1
