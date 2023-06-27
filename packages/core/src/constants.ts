@@ -192,7 +192,7 @@ export const defaultConfig: UserConfig = {
   scanner: {
     customSampling: {},
     ignoreI18nPages: true,
-    maxRoutes: 200,
+    maxRoutes: 20,
     skipJavascript: true,
     samples: 1,
     throttle: false,
