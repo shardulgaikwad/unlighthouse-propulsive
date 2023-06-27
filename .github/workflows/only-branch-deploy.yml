@@ -63,18 +63,21 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: "./build"
-          production-branch: main #${{ github.event.inputs.github_branch }}
-          production-deploy: false
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "New Release Deploy from GitHub Actions"
-          overwrites-pull-request-comment: true
-          alias: ${{ github.event.inputs.github_branch }}
-          github-deployment-environment: ${{ github.event.inputs.github_branch }}
-          #github-deployment-description: "Deployment description from main.yml"
-          # alias: ${{ steps.get_netlify_alias.outputs.netlify_alias }}
+          alias: ${{ steps.get_netlify_alias.outputs.netlify_alias }}
           enable-pull-request-comment: false
           enable-commit-comment: false
           enable-commit-status: false
+          github-deployment-environment: "branch"
+          # deploy-message: "New Release Deploy from GitHub Actions"
+          # overwrites-pull-request-comment: true
+          # alias: ${{ github.event.inputs.github_branch }}
+          # # github-deployment-environment: ${{ github.event.inputs.github_branch }}
+          # #github-deployment-description: "Deployment description from main.yml"
+          # alias: ${{ steps.get_netlify_alias.outputs.netlify_alias }}
+          # enable-pull-request-comment: false
+          # enable-commit-comment: false
+          # enable-commit-status: false
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEMO_SITE_ID }}
