@@ -3,21 +3,36 @@ name: Install, Build and deploy
 on:
   workflow_dispatch:
     inputs:
-      url:
-        description: 'Site URL to be used in the workflow'
+      website_url:
+        description: "Website URL to be used in the workflow"
+        default: "https://staging.propulsivetech.com"
         required: true
-  push:
-    branches:
-      - main
+      user_name:
+        description: "User Name to be used in the workflow"
+        default: "shardul"
+        required: true
+      user_email:
+        description: "User Email to be used in the workflow"
+        default: "shardulgaikwad@gmail.com"
+        required: true
+      netlify_site_id:
+        description: "Netlify site id"
+        required: true
 
 jobs:
-  demo:
+  install_build_deploy:
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          persist-credentials: false
+
+      - name: Print GitHub Event Inputs
+        run: |
+          echo "GitHub Event Inputs:"
+          echo "${{ toJson(github.event.inputs) }}" | yq eval 'map(.)' -
 
       - name: Install Dependencies
         run: npm add @unlighthouse/cli puppeteer
@@ -26,7 +41,7 @@ jobs:
         run: npm install -g @unlighthouse/cli puppeteer
 
       - name: Unlighthouse assertions and client
-        run: unlighthouse-ci --site ${{ github.event.inputs.url }} --build-static
+        run: unlighthouse-ci --site ${{ github.event.inputs.website_url }} --build-static
 
       - name: Move reports to build folder
         run: mkdir build && mv ./.unlighthouse/* ./build/
@@ -46,5 +61,5 @@ jobs:
           github-deployment-description: "Deployment description from main.yml"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEMO_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ github.event.inputs.netlify_site_id }}
         timeout-minutes: 1
