@@ -7,10 +7,6 @@ on:
         description: "Website URL to be used in the workflow"
         default: "https://staging.propulsivetech.com"
         required: true
-      website_nickname:
-        description: "Website Nickname to be used in the workflow"
-        default: "testnickname"
-        required: true
       user_name:
         description: "User Name to be used in the workflow"
         default: "shardul"
