@@ -18,9 +18,6 @@ on:
       netlify_site_id:
         description: "Netlify site id"
         required: true
-  push:
-    branches:
-      - main
 
 jobs:
   roughBook:
