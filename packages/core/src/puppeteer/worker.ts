@@ -69,7 +69,7 @@ export async function createUnlighthouseWorker(tasks: Record<UnlighthouseTask, T
   }
 
   const exceededMaxRoutes = () => {
-    return resolvedConfig.scanner.maxRoutes !== false && routeReports.size >= resolvedConfig.scanner.maxRoutes
+    return resolvedConfig.scanner.maxRoutes !== false && routeReports.size >= 20
   }
 
   const queueRoute = (route: NormalisedRoute) => {
