@@ -71,7 +71,7 @@
   const setting = localStorage.getItem('color-schema') || 'auto'
   if (setting === 'dark' || (prefersDark && setting !== 'light'))
     document.documentElement.classList.toggle('dark', true)
-
+  alert('DOM is ready!')
   // document.title = __unlighthouse_data.options.host.replace(/https?:\/\/(www.)?/, '') + ' | Unlighthouse'
 })()
 </script>
