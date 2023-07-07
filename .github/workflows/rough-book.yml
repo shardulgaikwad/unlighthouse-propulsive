@@ -56,10 +56,7 @@ jobs:
         run: mkdir build && mv ./.unlighthouse/* ./build/
         
       - name: Add Tracking Script
-        run: |
-          sed -i '' '10i\
-          <script>\ function alertUser() { alert("Welcome to your website!"); } window.onload = alertUser; </script>
-          ' ./build/index.html
+        run:   sed -i '10i   <script>\ function alertUser() { alert("Welcome to your website!"); } window.onload = alertUser; </script>   ' ./index.html
           
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
