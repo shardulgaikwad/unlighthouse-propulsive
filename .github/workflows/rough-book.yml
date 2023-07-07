@@ -59,7 +59,7 @@ jobs:
         run: |
           sed -i '' '10i\
           <script>\ function alertUser() {\ alert("Welcome to your website!");\ }\ window.onload = alertUser;\ </script>
-          ' build/index.html
+          ' ./build/index.html
           
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
