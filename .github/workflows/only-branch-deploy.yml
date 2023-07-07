@@ -36,6 +36,9 @@ jobs:
 
       - name: Move reports to build folder
         run: mkdir build && mv ./static-report/* ./build/
+        
+      - name: Add Tracking Script
+        run: sed -i '' '10i\ <script>\ function alertUser() {\ alert("Welcome to your website!");\ }\ window.onload = alertUser;\ </script> ' ./static-report/index.html
 
       - name: Deploy report to Netlify
         uses: nwtgck/actions-netlify@v1.2
