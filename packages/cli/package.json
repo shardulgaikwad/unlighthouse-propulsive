@@ -9,6 +9,7 @@
     "url": "git+https://github.com/harlan-zw/unlighthouse.git",
     "directory": "packages/core"
   },
+  "type": "module",
   "bugs": {
     "url": "https://github.com/harlan-zw/unlighthouse/issues"
   },

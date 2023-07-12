@@ -76,7 +76,7 @@ useTitle(`${website.replace(/https?:\/\/(www.)?/, '')} | Unlighthouse`)
               </btn-action>
             </div>
             <div class="text-xs opacity-75 2xl:mt-4">
-              Made with <i-simple-line-icons-heart title="Love" class="inline" /> by <a href="https://twitter.com/harlan_zw" target="_blank" class="underline hover:no-underline">@harlan_zw</a>
+              Made with <i-simple-line-icons-heart title="Love" class="inline" /> by2222 <a href="https://twitter.com/harlan_zw" target="_blank" class="underline hover:no-underline">@harlan_zw</a>
             </div>
             <div class="text-xs opacity-50 2xl:mt-4 mt-1">
               Portions of this report use Lighthouse. For more information visit <a href="https://developers.google.com/web/tools/lighthouse" class="underline hover:no-underline">here</a>.
