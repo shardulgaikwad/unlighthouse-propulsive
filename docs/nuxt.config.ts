@@ -7,13 +7,20 @@ export default defineNuxtConfig({
   extends: [
     '@nuxt-themes/docus',
     'nuxt-seo-kit',
+    'nuxt-lego',
   ],
 
   modules: [
     'nuxt-windicss',
+    'nuxt-og-image',
     '@nuxtjs/fontaine',
     resolve('./app/module'),
   ],
+
+  site: {
+    url: 'https://unlighthouse.dev',
+    name: 'Unlighthouse',
+  },
 
   runtimeConfig: {
     indexable: true,
@@ -52,9 +59,11 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: {
-        dark: 'github-dark',
-        default: 'github-light',
+        light: 'material-lighter',
+        default: 'material-default',
+        dark: 'material-palenight',
       },
+      preload: ['json', 'js', 'ts', 'html', 'css', 'json', 'vue', 'diff', 'shell', 'markdown', 'yaml', 'bash', 'ini'],
     },
   },
 
