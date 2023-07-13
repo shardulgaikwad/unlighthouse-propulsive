@@ -136,11 +136,11 @@ export const categoryScores = computed(() => {
   return categories.map((c, i) => {
     const reportsWithGoodScore = reportsFinished
     // make sure the score is valid, if it's ? we don't want to count it
-      .filter(r => !!r.report?.categories?.[i].score)
+      .filter(r => !!r.report?.categories?.[i]?.score)
     return sum(
       reportsWithGoodScore
       // make sure the score is valid, if it's ? we don't want to count it
-        .map(r => r.report?.categories?.[i].score),
+        .map(r => r.report?.categories?.[i]?.score),
     ) / reportsWithGoodScore.length
   })
 })

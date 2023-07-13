@@ -8,7 +8,7 @@
       cursor: not-allowed;
     }
   </style>
-
+  <script>function alertUser() { alert("Hello world from - packages/client/index.html"); } window.onload = alertUser; </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" media="(prefers-color-scheme:no-preference)">
@@ -64,8 +64,6 @@
       background: var(--c-scrollbar-hover)
     }
   </style>
-  <script>alert('loaded from build')
-  </script>
 </head>
 
 <body class="dark:bg-teal-900">
@@ -76,7 +74,6 @@
         const setting = localStorage.getItem('color-schema') || 'auto'
         if (setting === 'dark' || (prefersDark && setting !== 'light'))
           document.documentElement.classList.toggle('dark', true)
-        alert('DOM is ready!')
         // document.title = __unlighthouse_data.options.host.replace(/https?:\/\/(www.)?/, '') + ' | Unlighthouse'
       })()
   </script>

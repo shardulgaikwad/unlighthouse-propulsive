@@ -40,8 +40,8 @@
     "stub": "unbuild --stub"
   },
   "dependencies": {
-    "@unlighthouse/core": "workspace:../core",
-    "@unlighthouse/server": "workspace:../server",
+    "@unlighthouse/core": "../core",
+    "@unlighthouse/server": "../server",
     "better-opn": "^3.0.2",
     "cac": "^6.7.14",
     "consola": "^3.2.3",

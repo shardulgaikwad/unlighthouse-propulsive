@@ -27,7 +27,7 @@ const favIcon = computed(() => {
       <div class="flex items-center">
         <div v-if="website && !website.includes('localhost')" class="mr-5 hidden xl:block">
           <div class="uppercase opacity-55 ">
-            Website
+            Website Name
           </div>
           <div class="text-sm flex items-center">
             <a :href="website" class="flex items-center pt-1" target="_blank">
