@@ -41,7 +41,7 @@ jobs:
         run: npm install -g @unlighthouse/cli puppeteer
 
       - name: Unlighthouse assertions and client
-        run: unlighthouse-ci --site ${{ github.event.inputs.website_url }} --build-static
+        run: node packages/cli/dist/ci.mjs --site ${{ github.event.inputs.website_url }} --build-static
 
       - name: Move reports to build folder
         run: mkdir build && mv ./.unlighthouse/* ./build/
