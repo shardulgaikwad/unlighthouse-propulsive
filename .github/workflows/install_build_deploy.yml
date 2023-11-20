@@ -42,10 +42,28 @@ jobs:
 
       - name: Install and build Local Dependencies
         run: |
-          cd packages/cli
+          cd packages
+
+          cd client
           npm install
           npm run build
           cd ..
+
+          cd core
+          npm install
+          npm run build
+          cd ..
+
+          cd server
+          npm install
+          npm run build
+          cd ..
+
+          cd cli
+          npm install
+          npm run build
+          cd ..
+
           cd ..
 
       - name: Unlighthouse assertions and client
