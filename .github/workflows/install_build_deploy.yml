@@ -40,6 +40,14 @@ jobs:
       - name: Install Global Dependencies
         run: npm install -g @unlighthouse/cli puppeteer
 
+      - name: Install and build Local Dependencies
+        run: |
+          cd packages/cli
+          npm install
+          npm run build
+          cd ..
+          cd ..
+
       - name: Unlighthouse assertions and client
         run: node packages/cli/dist/ci.mjs --site ${{ github.event.inputs.website_url }} --build-static
 
