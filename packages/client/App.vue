@@ -133,7 +133,7 @@ useTitle(`${website.replace(/https?:\/\/(www.)?/, '')} | Unlighthouse`)
                     @click="openLighthouseReportIframeModal(report)"
                   >
                     <div style="flex-basis: 70px;" class="mt-1 text-blue-500">
-                      <i-vscode-icons-file-type-lighthouse class="text-xl mr-2" />
+
                     </div>
                     <div class="text-left">
                       <p class="break-none text-base">
