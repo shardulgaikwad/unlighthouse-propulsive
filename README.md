@@ -80,3 +80,35 @@ Integration instructions, Guides, API and config spec can be found on [docs](htt
 ## License
 
 MIT License © 2022 [Harlan Wilton](https://github.com/harlan-zw)
+
+## Making local changes
+- modify the code in the packages/client/components
+- Simple run all the commands together in terminal
+
+cd packages
+
+cd client
+npm install
+npm run build
+cd ..
+
+cd core
+npm install
+npm run build
+cd ..
+
+cd server
+npm install
+npm run build
+cd ..
+
+cd cli
+npm install
+npm run build
+cd ..
+
+cd ..
+
+npm install
+node packages/cli/dist/ci.mjs --site https://webbedup.com/ --build-static --urls /
+npx sirv-cli .unlighthouse
