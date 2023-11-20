@@ -32,7 +32,9 @@
     "docs:serve": "npm -C docs run serve"
   },
   "dependencies": {
-    "unbuild": "^1.2.1"
+    "@unlighthouse/cli": "^0.10.2",
+    "unbuild": "^1.2.1",
+    "unlighthouse": "^0.10.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.7",

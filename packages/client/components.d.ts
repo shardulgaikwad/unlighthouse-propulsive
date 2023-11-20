@@ -60,7 +60,6 @@ declare module '@vue/runtime-core' {
     IMdiMagnifyScan: typeof import('~icons/mdi/magnify-scan')['default']
     InfoChip: typeof import('./components/Chip/InfoChip.vue')['default']
     ISimpleLineIconsHeart: typeof import('~icons/simple-line-icons/heart')['default']
-    IVscodeIconsFileTypeLighthouse: typeof import('~icons/vscode-icons/file-type-lighthouse')['default']
     LighthouseThreeD: typeof import('./components/LighthouseThreeD.vue')['default']
     LoadingSpinner: typeof import('./components/Loading/LoadingSpinner.vue')['default']
     LoadingStatusIcon: typeof import('./components/Loading/LoadingStatusIcon.vue')['default']
