@@ -1,0 +1,66 @@
+#bash-lightbouse
+
+cd packages
+
+cd client
+npm install
+npm run build
+cd ..
+
+cd core
+npm install
+npm run build
+cd ..
+
+cd server
+npm install
+npm run build
+cd ..
+
+cd cli
+npm install
+npm run build
+cd ..
+
+cd ..
+
+npm install
+node packages/cli/dist/ci.mjs --site https://webbedup.com/ --build-static --urls /
+npx sirv-cli .unlighthouse
+
+
+
+
+
+export NVM_DIR=~/.nvm
+ source ~/.nvm/nvm.sh
+
+
+
+
+
+npm run cli --site https://webbedup.com/ --build-static --urls /
+npx sirv-cli .unlighthouse
+
+npm run cli --site https://webbedup.com/ --build-static --urls /
+npx sirv-cli .unlighthouse
+
+
+
+unlighthouse-ci --site https://webbedup.com/ --build-static --urls /
+npx sirv-cli .unlighthouse
+
+
+node packages/cli/dist/cli.mjs --site https://webbedup.com/ --build-static --urls /
+npx sirv-cli .unlighthouse
+
+
+
+npx sirv-cli static-report
+
+git config --global user.name "Purke Gopinand"
+git config --global user.email "gopinand@propulsivetech.com"
+
+^jhWR#V13eV1JQcL
+
+a36c08db-84eb-4be8-a2d8-d1f57b92dda9
