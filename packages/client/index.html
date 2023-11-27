@@ -2,12 +2,18 @@
 <html lang="en" class="dark">
 
 <head>
+  <script>
+    var siteconfig=[{subdomain:"aa",sitedomain:"https://aa.wordpressdeveloper.zip",netlify_siteid:"a36c08db-84eb-4be8-a2d8-d1f57b92dda9",gtm_containerid:"GTM-WD5QDCHR"},{subdomain:"happy",sitedomain:"https://happy.wordpressdeveloper.zip",netlify_siteid:"bab3df95-94b2-4bd3-a175-aeeafcf7fc70",gtm_containerid:"GTM-5K26GCBT"},{subdomain:"joy",sitedomain:"https://joy.wordpressdeveloper.zip",netlify_siteid:"2733d99a-e5fd-41d3-ae19-5002760bb34b",gtm_containerid:"GTM-K3ZJ8WDP"}];
+    var currentSubdomain = window.location.hostname.split('.')[0];
+    var currentSiteConfig = siteconfig.find(x => x.subdomain === currentSubdomain) || null;
+    console.log("currentSiteConfig", currentSiteConfig);
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WD5QDCHR');</script>
+  })(window,document,'script','dataLayer',currentSiteConfig.gtm_containerid);</script>
   <!-- End Google Tag Manager -->
   <style>
     button[disabled] {
@@ -75,7 +81,7 @@
 
 <body class="dark:bg-teal-900">
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WD5QDCHR"
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=" + currentSiteConfig.gtm_containerid
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div id="app"></div>
