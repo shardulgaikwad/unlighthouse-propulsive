@@ -3,7 +3,28 @@
 
 <head>
   <script>
-    var siteconfig=[{subdomain:"aa",sitedomain:"https://aa.wordpressdeveloper.zip",netlify_siteid:"a36c08db-84eb-4be8-a2d8-d1f57b92dda9",gtm_containerid:"GTM-WD5QDCHR"},{subdomain:"happy",sitedomain:"https://happy.wordpressdeveloper.zip",netlify_siteid:"bab3df95-94b2-4bd3-a175-aeeafcf7fc70",gtm_containerid:"GTM-5K26GCBT"},{subdomain:"joy",sitedomain:"https://joy.wordpressdeveloper.zip",netlify_siteid:"2733d99a-e5fd-41d3-ae19-5002760bb34b",gtm_containerid:"GTM-K3ZJ8WDP"}];
+    var siteconfig = [
+      { subdomain: "aa", sitedomain: "https://aa.wordpressdeveloper.zip", netlify_siteid: "a36c08db-84eb-4be8-a2d8-d1f57b92dda9", gtm_containerid: "GTM-WD5QDCHR" },
+      { subdomain: "happy", sitedomain: "https://happy.wordpressdeveloper.zip", netlify_siteid: "bab3df95-94b2-4bd3-a175-aeeafcf7fc70", gtm_containerid: "GTM-5K26GCBT" },
+      { subdomain: "joy", sitedomain: "https://joy.wordpressdeveloper.zip", netlify_siteid: "2733d99a-e5fd-41d3-ae19-5002760bb34b", gtm_containerid: "GTM-K3ZJ8WDP" },
+      { subdomain: "joyful", sitedomain: "https://joyful.wordpressdeveloper.zip", netlify_siteid: "396105a4-9ec2-44c9-8f24-c8052d03d987", gtm_containerid: "GTM-5DL34MVL" },
+      { subdomain: "merry", sitedomain: "https://merry.wordpressdeveloper.zip", netlify_siteid: "03c3fbe8-6a6a-4bb6-b3a2-836613f56cbe", gtm_containerid: "GTM-WB4NZJKT" },
+      { subdomain: "cheerful", sitedomain: "https://cheerful.wordpressdeveloper.zip", netlify_siteid: "1479f1f5-aba5-421f-82c9-b696dfbadaa1", gtm_containerid: "GTM-5TDJ47R4" },
+      { subdomain: "delighted", sitedomain: "https://delighted.wordpressdeveloper.zip", netlify_siteid: "2f148914-503b-43ec-8dc1-0c38adf03d26", gtm_containerid: "GTM-WN8SWD5V" },
+      { subdomain: "delightful", sitedomain: "https://delightful.wordpressdeveloper.zip", netlify_siteid: "d954c4cb-0534-47b0-91ed-a657a8009be1", gtm_containerid: "GTM-TRNRVG52" },
+      { subdomain: "ecstatic", sitedomain: "https://ecstatic.wordpressdeveloper.zip", netlify_siteid: "c4b07091-ac33-48db-9122-8bfdef60e4c6", gtm_containerid: "GTM-5BNVFGVP" },
+      { subdomain: "effervescent", sitedomain: "https://effervescent.wordpressdeveloper.zip", netlify_siteid: "8c3cac3f-9f77-47f1-9438-60b798c4acdb", gtm_containerid: "GTM-MGPTDZ6N" },
+      { subdomain: "enjoyable", sitedomain: "https://enjoyable.wordpressdeveloper.zip", netlify_siteid: "6f601956-e41a-497b-b4e9-f4f787f59098", gtm_containerid: "GTM-W9P5XWCS" },
+      { subdomain: "fantastic", sitedomain: "https://fantastic.wordpressdeveloper.zip", netlify_siteid: "b892c8af-0ad0-4ba2-b348-3f21d591e6e4", gtm_containerid: "GTM-WCCTDPGJ" },
+      { subdomain: "glad", sitedomain: "https://glad.wordpressdeveloper.zip", netlify_siteid: "34c41b9d-009b-4064-af0c-c3b70ed7582f", gtm_containerid: "GTM-MH48NWMB" },
+      { subdomain: "heartwarming", sitedomain: "https://heartwarming.wordpressdeveloper.zip", netlify_siteid: "6e52adcb-bf9a-444b-9ea7-8331171e4475", gtm_containerid: "GTM-W4PGJTRZ" },
+      { subdomain: "high", sitedomain: "https://high.wordpressdeveloper.zip", netlify_siteid: "e1e803ed-3f88-4eae-a7db-e8d4dd810416", gtm_containerid: "GTM-KTDR9762" },
+      { subdomain: "jubilant", sitedomain: "https://jubilant.wordpressdeveloper.zip", netlify_siteid: "be8dac07-0132-41de-8207-f3c373ab19af", gtm_containerid: "GTM-N8WM7DN3" },
+      { subdomain: "pleasing", sitedomain: "https://pleasing.wordpressdeveloper.zip", netlify_siteid: "b3fde99f-2349-451c-ac90-48c943c5c292", gtm_containerid: "GTM-WVFKJ924" },
+      { subdomain: "pleasurable", sitedomain: "https://pleasurable.wordpressdeveloper.zip", netlify_siteid: "3302e66d-0df7-4439-b07d-f0d6b8642e1d", gtm_containerid: "GTM-N4J7JQRG" },
+      { subdomain: "welcome", sitedomain: "https://welcome.wordpressdeveloper.zip", netlify_siteid: "d8bf14a6-ee43-4413-a577-aebd680c9f52", gtm_containerid: "GTM-W5TD9DZP" },
+      { subdomain: "wonderful", sitedomain: "https://wonderful.wordpressdeveloper.zip", netlify_siteid: "b21cfd4d-045e-4b97-8b2f-2e1f0cfee3f7", gtm_container: "GTM-WVNW3J6M" },
+    ];
     var currentSubdomain = window.location.hostname.split('.')[0];
     var currentSiteConfig = siteconfig.find(x => x.subdomain === currentSubdomain) || null;
     console.log("currentSiteConfig", currentSiteConfig);
