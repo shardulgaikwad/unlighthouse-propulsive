@@ -1,6 +1,6 @@
 export default {
   scanner: {
-    maxRoutes: 1000,
+    maxRoutes: 20,
   },
   // lighthouseOptions: {
   //   // ['performance', 'best-practices', 'accessibility', 'seo', 'pwa'],
