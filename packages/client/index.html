@@ -27,7 +27,7 @@
     ];
     var currentSubdomain = window.location.hostname.split('.')[0];
     var currentSiteConfig = siteconfig.find(x => x.subdomain === currentSubdomain) || null;
-    console.log("currentSiteConfig", currentSiteConfig);
+    // console.log("currentSiteConfig", currentSiteConfig);
   </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -36,15 +36,21 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer',currentSiteConfig.gtm_containerid);</script>
   <!-- End Google Tag Manager -->
-  <!-- Google tag (gtag.js) -->
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XRY8LLP18L"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-XRY8LLP18L');
-  </script> -->
+  <!-- Sienna Website Widget -->
+  <style>
+  .asw-footer {
+    background: #f9f9f9 !important;
+    padding: 10px !important;
+  }
+  .asw-footer a {
+      color: #f9f9f9 !important;
+      padding: 0 !important;
+      pointer-events: none !important;
+      cursor: default !important;
+  }
+  </style>
+  <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+  <!-- End Sienna Website Widget -->
   <style>
     button[disabled] {
       opacity: 0.5;
