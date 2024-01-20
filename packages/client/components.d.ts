@@ -45,7 +45,6 @@ declare module '@vue/runtime-core' {
     ICarbonChevronSortUp: typeof import('~icons/carbon/chevron-sort-up')['default']
     ICarbonChevronUp: typeof import('~icons/carbon/chevron-up')['default']
     ICarbonInformation: typeof import('~icons/carbon/information')['default']
-    ICarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
     ICarbonMoon: typeof import('~icons/carbon/moon')['default']
     ICarbonSearch: typeof import('~icons/carbon/search')['default']
     ICarbonSun: typeof import('~icons/carbon/sun')['default']

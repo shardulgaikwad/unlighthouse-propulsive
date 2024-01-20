@@ -22,7 +22,7 @@ defineProps<{
       </div>
     </div>
     <div class="text-xs opacity-60 mt-1 text-center" style="font-size: 10px;">
-      View Report
+      Click Here to View Detailed Report
     </div>
   </btn-action>
 </template>

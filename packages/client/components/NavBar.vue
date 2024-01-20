@@ -151,13 +151,13 @@ onMounted(() => {
       </div>
     </div>
     <div class="hidden md:flex-auto" />
-    <btn-icon
+    <!-- <btn-icon
       class="icon-btn text-lg"
       href="https://github.com/harlan-zw/unlighthouse"
       target="_blank"
     >
       <i-carbon-logo-github />
-    </btn-icon>
+    </btn-icon> -->
     <btn-icon class="text-lg" title="Toggle Dark Mode" @click="toggleDark()">
       <i-carbon-moon v-if="isDark" />
       <i-carbon-sun v-else />
